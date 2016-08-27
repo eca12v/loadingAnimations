@@ -1,0 +1,85 @@
+body {
+  padding: 100px;
+  background: #eee;
+}
+
+.wrap {
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 100px;
+  background: white;
+  padding-bottom: 100px;
+  box-shadow: 0px 40px 60px -20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  padding: 50px;
+}
+
+.spinner {
+  width: 100px;
+  height: 100px;
+  background: #eee;
+  border-radius: 50%;
+  position: relative;
+  margin: 50px;
+  display: inline-block;
+}
+
+.spinner:before, .spinner:after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.loader {
+  width: 300px;
+  height: 0px;
+  border-top: 8px dotted #eee;
+  background: none;
+  display: inline-block;
+  position: relative;
+}
+
+.loader:before, .loader:after {
+  content: '';
+  display: block;
+  height: 0px;
+  width: 0px;
+  border: 30px solid orangered;
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  position: absolute;
+  top: 50%;
+  margin-top: -34px;
+  animation: topchomp 1s ease-in-out infinite reverse, movechomp 3s linear infinite;
+}
+
+.loader:after {
+  border-color: orangered;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  animation: bottomchomp 1s ease-out infinite, movechomp 3s linear infinite;
+}
+
+@keyframes bottomchomp {
+    0%, 100% {transform:rotate(10deg);}
+
+    50% {transform: rotate(-50deg);}
+
+}
+
+@keyframes topchomp {
+  0%, 100% {transform: rotate(-20deg);}
+
+  50% {transform: rotate(37deg);}
+}
+
+@keyframes movechomp {
+  0% {left: 0%;}
+
+  100% {left: 100%;}
+}
